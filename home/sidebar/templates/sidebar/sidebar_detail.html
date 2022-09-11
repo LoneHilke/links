@@ -1,0 +1,21 @@
+{% extends 'sidebar/base.html' %}
+
+{% block content %}
+    <article class="sidebar">
+      <aside class="actions">
+        <a class="btn btn-secondary" href="{% url 'sidebar_edit' pk=sidebar.pk %}">
+          <!--{% include './icons/pencil-fill.svg' %}
+        </a>-->
+      </aside>
+        {% if sidebar.published_date %}
+            <time class="date">
+                {{ sidebar.published_date }}
+            </time>
+        {% endif %}
+        <!--<img src="{{ post.image }}" width="200" height="120"/>-->
+        <h2>{{ sidebar.title }}</h2>
+        <p>{{ sidebar.text|linebreaksbr }}</p>
+        
+      <a class="ml-3" href="{{ sidebar.link }}">Link </a>
+    </article>
+{% endblock %}
