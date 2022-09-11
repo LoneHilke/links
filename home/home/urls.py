@@ -17,9 +17,17 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from python.views import Home
+#from home.views import Home
+from python.views import Python
+from jango.views import Jango
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Home.as_view(), name='home'),
+    #path('', Home.as_view(), name='home'),
+    #path('python/', Python.as_view(), name='python'),
+    #path('jango/', Jango.as_view(), name='jango'),
+    #path('', include('home.urls')),
+    path('sidebar/', include('sidebar.urls')),
+    path('python/', include('python.urls')),
+    path('jango/', include('jango.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

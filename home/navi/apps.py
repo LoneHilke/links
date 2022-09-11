@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SidebarConfig(AppConfig):
+class NaviConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'sidebar'
+    name = 'navi'

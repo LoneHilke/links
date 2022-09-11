@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'home',
     'python',
     'navi',
+    'sidebar',
 ]
 
 MIDDLEWARE = [

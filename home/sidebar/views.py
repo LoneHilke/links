@@ -12,7 +12,7 @@ from django.views import View
     return render(request, 'sidebar/base.html')"""
     
 def sidebar_list(request):
-    sidebar = Sidebar.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    sidebars = Sidebar.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'sidebar/sidebar_list.html', {'sidebars':sidebars})
   
 def sidebar_detail(request, pk):
@@ -33,7 +33,7 @@ def sidebar_new(request):
       return render(request, 'sidebar/sidebar_edit.html', {'form': form})
   
 def sidebar_edit(request, pk):
-    sidebar = get_object_or_404(Python, pk=pk)
+    sidebar = get_object_or_404(Sidebar, pk=pk)
     if request.method == "SIDEBAR":
       form = SidebarForm(request.SIDEBAR, instance=sidebar)
       if form.is_valid():
@@ -44,4 +44,3 @@ def sidebar_edit(request, pk):
     else:
       form = SidebarForm(instance=sidebar)
     return render(request, 'sidebar/sidebar_edit.html', {'form':form})
-  
