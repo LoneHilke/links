@@ -1,0 +1,21 @@
+{% extends 'python/base.html' %}
+
+{% block content %}
+    <article class="python">
+      <aside class="actions">
+        <a class="btn btn-secondary" href="{% url 'python_edit' pk=python.pk %}">
+          <!--{% include './icons/pencil-fill.svg' %}
+        </a>-->
+      </aside>
+        {% if python.published_date %}
+            <time class="date">
+                {{ python.published_date }}
+            </time>
+        {% endif %}
+        <!--<img src="{{ post.image }}" width="200" height="120"/>-->
+        <h2>{{ python.title }}</h2>
+        <p>{{ python.beskrivelse|linebreaksbr }}</p>
+        
+      <a class="ml-3" href="{{ python.links }}">Link </a>
+    </article>
+{% endblock %}
