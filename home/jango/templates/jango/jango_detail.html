@@ -1,0 +1,21 @@
+{% extends 'jango/base.html' %}
+
+{% block content %}
+    <article class="python">
+      <aside class="actions">
+        <a class="btn btn-secondary" href="{% url 'jango_edit' pk=jango.pk %}">
+          <!--{% include './icons/pencil-fill.svg' %}
+        </a>-->
+      </aside>
+        {% if jango.published_date %}
+            <time class="date">
+                {{ jango.published_date }}
+            </time>
+        {% endif %}
+        <!--<img src="{{ post.image }}" width="200" height="120"/>-->
+        <h2>{{ jango.titel }}</h2>
+        <p>{{ jango.beskrivelse|linebreaksbr }}</p>
+        
+      <a class="ml-3" href="{{ jango.links }}">Link </a>
+    </article>
+{% endblock %}

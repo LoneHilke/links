@@ -1,0 +1,35 @@
+{% extends 'jango/base.html' %}
+
+{% block content %}
+<!--<div class="row row-cols-3 row-cols-md-2 g-2">
+  <div class="col">
+    <div class="card">-->
+      {% for jango in jangos %}
+      <!--<div class="card-group">-->
+      
+      <div class="card text-white bg-success mb-3" style="max-width: 25rem;">
+        <div class="card-header"></div>
+        <div class='card w-40'>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <!--<img class="card-img-top" src="{{ tanker.image }}"width="200" height="120"/>-->
+              <div class="card-body">
+                <article class="jango">
+                  <time>published: {{ jango.published_date }}</time>
+                    <h2><a href="{% url 'jango_detail' pk=jango.pk %}">{{ jango.title }}</a></h2>
+                  <p>{{ jango.beskrivelse|linebreaksbr }}</p>
+                  <a class="ml-3" href="{{ jango.links }}">Link </a>
+                </article>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+      {% endfor %}
+    </div> 
+       
+    </div>
+  </div>
+
+{% endblock %}
+       
